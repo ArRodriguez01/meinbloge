@@ -94,8 +94,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $this->authorize('delete',$pio);
-        $pio->delete();
-        return redirect(route('pios.index'));
+        $this->authorize('delete',$post);
+        $post->delete();
+        return redirect(route('posts.index'));
     }
 }
