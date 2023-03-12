@@ -24,6 +24,10 @@
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                <h1>Tus posts</h1>
+
+            </div>
         </div>
     </div>
 </x-app-layout>

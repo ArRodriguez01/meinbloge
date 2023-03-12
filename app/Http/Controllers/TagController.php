@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,21 +35,16 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $validated=$request->validate([
-            'message'=>'required|string|max:255'
-
-        ]);
-        $request->user()->comments()->create($validated);
-        return  redirect(route('posts.index'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show(Tag $tag)
     {
         //
     }
@@ -57,10 +52,10 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit(Tag $tag)
     {
         //
     }
@@ -69,10 +64,10 @@ class CommentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, Tag $tag)
     {
         //
     }
@@ -80,10 +75,10 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Tag $tag)
     {
         //
     }
