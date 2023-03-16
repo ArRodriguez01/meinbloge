@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Comment;
 
 class PostController extends Controller
 {
@@ -15,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.index',[
-            'posts'=>Post::with('user')->latest()->get(),
+           'posts'=>Post::with('user')->latest()->get(),
+           'comments'=>Comment::with('user')->latest()->get()
         ]);
     }
 

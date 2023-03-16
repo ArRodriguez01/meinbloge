@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class CommentController extends Controller
 {
@@ -28,17 +29,18 @@ class CommentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Undocumented function
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Post $post
+     * @return void
      */
-    public function store(Request $request)
+    public function store(Request $request,Post $post)
     {
         $validated=$request->validate([
             'message'=>'required|string|max:255'
-
         ]);
+        $validated['post_id']=$post->id;
         $request->user()->comments()->create($validated);
         return  redirect(route('posts.index'));
     }

@@ -6,7 +6,10 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                            <path fill-rule="evenodd" d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z" clip-rule="evenodd" />
+                          </svg>
+
                     </a>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -16,6 +19,19 @@
                     <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
                     {{__('Posts')}}
                     </x-nav-link>
+                    @if(Auth::user()->hasRole('admin'))
+                    <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                        {{__('Los users')}}
+                    </x-nav-link>
+                    <x-nav-link :href="route('allpublications')" :active="request()->routeIs('allpublications')">
+                        {{__('Todos los posts')}}
+                    </x-nav-link>
+                    @endif
+                    @if(Auth::user()->hasRole('user'))
+                    <x-nav-link :href="route('publications')" :active="request()->routeIs('publications')">
+                        {{__('Mis Posts')}}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
             <!-- Settings Dropdown -->
